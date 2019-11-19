@@ -46,7 +46,7 @@ app.get("/api/courses", (req, res) => {
   res.send(courses);
 });
 
-// POST ------------------------
+// POST ---------------------------
 
 app.post("/api/courses", (req, res) => {
   const { error } = validateCourse(req.body);
@@ -60,7 +60,7 @@ app.post("/api/courses", (req, res) => {
   res.send(course);
 });
 
-// PUT ---------------------------
+// PUT -----------------------------
 
 app.put("/api/courses/:id", (req, res) => {
   //  1. Look up the course
@@ -89,7 +89,7 @@ function validateCourse(course) {
   return Joi.validate(course, schema); // validate
 }
 
-// DELETE ---------------------------
+// DELETE ----------------------------
 app.delete("api/courses/:id", (req, res) => {
   // 1. Look up the course
   const course = courses.find(c => c.id === parseInt(req.params.id));
@@ -102,7 +102,7 @@ app.delete("api/courses/:id", (req, res) => {
   res.send(course);
 });
 
-// GET ------------------------------
+// GET -------------------------------
 // /api/coureses/1
 app.get("/api/courses/:id", (req, res) => {
   const course = courses.find(c => c.id === parseInt(req.params.id));
